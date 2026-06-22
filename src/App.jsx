@@ -8,7 +8,7 @@ function App() {
     const saved = localStorage.getItem("expenses")
     return saved ? JSON.parse(saved):[];
   })
-  
+
    useEffect(()=>{
     localStorage.setItem("expenses",JSON.stringify(expenses))
        },[expenses])
@@ -19,9 +19,10 @@ function App() {
   }
 
   const deleteExpense = (id) => {
-   alert("list is deleted");
+   setExpenses((prev)=> prev.filter((item)=>item.id != id));
   };
-
+  //drive state
+ const totalExpenses = expenses.reduce((sum,item)=> sum + item.amount,0)
  
 
   return (
@@ -30,7 +31,7 @@ function App() {
 
       <ExpenseForm onAddExpense={addExpense} />
 
-      <h3 className="total"> Total Expense: 550.00  </h3>
+      <h3 className="total"> Total-{totalExpenses.toFixed(2)}  </h3>
 
       <ExpenseList
         expenses={expenses}
