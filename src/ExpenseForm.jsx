@@ -29,16 +29,14 @@ function ExpenseForm({ onAddExpense }) {
       <form className="expense-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          className="inputField"
-          placeholder="Expense Title"
+                   placeholder="Expense Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
 
         <input
           type="number"
-          className="inputField"
-          placeholder="Amount"
+                   placeholder="Amount"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
         />

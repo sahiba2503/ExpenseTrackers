@@ -1,0 +1,17 @@
+.expenseitemContainer{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   padding: 0.5rem;
+
+}
+.expenseItems{
+    border: 0px solid black;
+    width: 75%;
+    padding-right:3rem;
+    overflow-wrap: break-word;
+}
+.expenseitemContainer button{
+    color:red;
+}
