@@ -1,46 +1,18 @@
 
-import { useState ,useEffect} from "react";
-import ExpenseForm from "./ExpenseForm";
-import ExpenseList from "./ExpenseList";
-
-
+import {ExpenseTrakerContainer} from "./ExpenseTrakerContainer";
+import React from 'react'
 
 function App() {
-  const [expenses, setExpenses] = useState(()=>{
-    const saved = localStorage.getItem("expenses")
-    return saved ? JSON.parse(saved):[];
-  })
-
-   useEffect(()=>{
-    localStorage.setItem("expenses",JSON.stringify(expenses))
-       },[expenses])
-      
-
-  const addExpense = (expense) => {
-    setExpenses((prev) => [...prev, expense])
-  }
-
-  const deleteExpense = (id) => {
-   setExpenses((prev)=> prev.filter((item)=>item.id != id));
-  };
-  //drive state
- const totalExpenses = expenses.reduce((sum,item)=> sum + item.amount,0)
- 
-
   return (
-    <div className="app-container">
-      <h1>Expense Tracker</h1>
-
-      <ExpenseForm onAddExpense={addExpense} />
-
-      <h3 className="total"> Total-{totalExpenses.toFixed(2)}  </h3>
-
-      <ExpenseList
-        expenses={expenses}
-        onDelete={deleteExpense}
-      />
+    <div>
+      <div>
+        <span>home</span>
+        <span>about</span>
+        <span>contact</span>
+      </div>
+      <ExpenseTrakerContainer/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
